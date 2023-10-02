@@ -46,8 +46,8 @@ installation_22.04 () {
 
 mv /etc/hosts /etc/hosts.backup
 cat > /etc/hosts << 'EOL'
-127.0.0.1		localhost
-127.0.1.1		linuxsyr.sy
+127.0.0.1		amanvv
+127.0.1.1		apks.love
 EOL
 cat > /etc/hostname << 'EOL'
 linuxsyr
@@ -149,11 +149,11 @@ rotateCursor 10
 cat > /etc/apache2/sites-available/wordpress.conf << 'EOL'
 <VirtualHost *:80>
 
-ServerAdmin root@linuxsyr.sy
+ServerAdmin root@apks.love
 
 DocumentRoot /var/www/html/
-ServerName linuxsyr.sy
-ServerAlias www.linuxsyr.sy
+ServerName apks.love
+ServerAlias www.apks.love
 
 <Directory /var/www/html/>
 
@@ -172,7 +172,7 @@ sudo a2ensite wordpress.conf
 sudo a2enmod rewrite
 sudo a2dissite 000-default.conf
 sudo systemctl restart apache2
-firefox -new-tab "http://linuxsyr.sy/wp-admin/setup-config.php"
+firefox -new-tab "http://apks.love/wp-admin/setup-config.php"
 sudo apt autoremovereset
 echo "wordpress installed successfully ";
 
@@ -194,7 +194,7 @@ rotateCursor 10
 reset
 BIGreen='\033[1;92m'
 printf  "${BIGreen} * wordpress installed "
-printf  "${BIGreen} * http://linuxsyr.sy"
+printf  "${BIGreen} * http://apks.love"
 printf  "${BIGreen} * visit the site to complete configure it "
 
 }
@@ -209,11 +209,11 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 cat > /etc/apache2/sites-available/wordpress.conf << 'EOL'
 <VirtualHost *:443>
 
-ServerAdmin root@linuxsyr.sy
+ServerAdmin root@apks.love
 
 DocumentRoot /var/www/html/
-ServerName linuxsyr.sy
-ServerAlias www.linuxsyr.sy
+ServerName apks.love
+ServerAlias www.apks.love
 
    SSLEngine on
    SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
